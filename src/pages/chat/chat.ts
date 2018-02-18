@@ -26,6 +26,7 @@ export class ChatPage {
 	  }
 	// Looks if user presses "ENTER" when tring to send message
 
+
 	  
 	//   stringTime: string = Date.now().toString();
 	  sendMessage() {			
