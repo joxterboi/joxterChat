@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
 import { AngularFirestore } from 'angularfire2/firestore';
 
 
@@ -14,12 +14,14 @@ export class ChatPage {
 	message: string = "";
 	subscription;
 	messages: object[] = [];
+	@ViewChild(Content) content: Content;
 
 	constructor(public db: AngularFirestore,
 		public navCtrl: NavController, public navParams: NavParams) {
 			this.username = this.navParams.get("username");
 			this.subscription = this.db.collection('chat').valueChanges().subscribe( data => {
-				this.messages= data;				
+				this.messages= data;			
+				this.scrollToBottom()	
 			});
 	  }
 	// Looks if user presses "ENTER" when tring to send message
@@ -38,6 +40,7 @@ export class ChatPage {
 				// If an arror happens
 			});
 			this.message="";
+		  	this.scrollToBottom()
 		}
 
 		ionViewDidLoad() {
@@ -55,4 +58,10 @@ export class ChatPage {
 				message: this.username + ' has left the chat'
 			})
 		}
+
+		scrollToBottom() {
+			setTimeout(() => {
+				this.content.scrollToBottom();
+		})
+	}
 	}
