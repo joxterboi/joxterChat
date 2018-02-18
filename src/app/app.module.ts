@@ -6,20 +6,39 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { ChatPage } from '../pages/chat/chat';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+
+
+  // Initialize Firebase
+  var config = {
+  apiKey: "AIzaSyCmVzDpYhPKXWEvhYy8oeV7VkmeQ8dkJF4",
+  authDomain: "joxterchat.firebaseapp.com",
+  databaseURL: "https://joxterchat.firebaseio.com",
+  projectId: "joxterchat",
+  storageBucket: "joxterchat.appspot.com",
+  messagingSenderId: "949873441530"
+};
+
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    ChatPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(config),
+    AngularFirestoreModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    ChatPage
   ],
   providers: [
     StatusBar,

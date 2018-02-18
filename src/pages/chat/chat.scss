@@ -1,0 +1,61 @@
+page-chat {
+    // Normal messages
+    .message {
+        padding: 10px 20px;
+        background-color: #3F51B5;
+        margin-top: 5px;
+        border-radius: 200px;
+        overflow: hidden;
+        display: inline-block;
+        max-width: 85%;
+    }
+    .message:last-child {
+        margin-bottom: 55px;
+    }
+    .username {
+        color:rgba(255,255,255,0.7);
+        font-size: 12px;
+    }
+    .messages {
+        color:#fff;
+        font-size: 15px;
+    }
+    #messageRight {
+        float: right;
+        background-color: #FF4081;
+        clear: both;
+    }
+    #messageLeft {
+        float: left;
+        clear: both;
+    }
+
+    // Special messages when user leaves and enters
+    .specialMsg {
+        width: 100%;
+        background: none !important;
+        text-align: center;
+        padding:20px 0;
+        max-width: 100%;
+    }
+    .specialMsg .messages {
+        color:#000
+    }
+
+    // Footer
+    #sendButton {
+        margin-top:-40px;
+        background:none;
+        box-shadow: none;
+        color:#000;
+        outline: none
+    }
+    #messageInput {
+        width: calc(100% - 40px);
+        height: 38px;
+        
+    }
+    .footer {
+        position: fixed;
+    }
+}
